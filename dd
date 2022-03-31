@@ -27,7 +27,7 @@ def randomStringWithChar(stringLength=10):
     return RandomStringChars(1) + result
 
 ctypes.windll.kernel32.SetConsoleTitleW(f'#Alpha Claimer - By @7zb8')
-os.system('mode con: cols=65 lines=12')
+os.system('mode con: cols=65 lines=13')
 
 ###########################################################login#######################################################
 def generateUSER_AGENT():
