@@ -1,3 +1,15 @@
+try:
+    import requests  ,time , threading,os,string,random,re,colorama,socket,hashlib,ctypes,uuid
+    import getpass
+    from tkinter import *
+    import tkinter.messagebox
+    from threading import Lock
+except ModuleNotFoundError as e:
+    try:
+        m = str(e).split("'")[1]
+        os.system(f'pip install {m}')
+    except:
+        ""
 PASTEBIN1 = 'https://pastebin.com/raw/xfaxCgMG'
 TEXT = requests.get(PASTEBIN1).text
 if 'xfaxCgMG' in PASTEBIN1:
@@ -75,6 +87,7 @@ class Main:
     def __init__(self):
         self.dn, self.er, self.pr = 0, 0, 0
         self.nosp , self.nospa = 0,0
+        self.req = 0
         try:
             print("")
             self.SESSIONS = open('sessions.txt','r').read().splitlines()
@@ -162,9 +175,9 @@ class Main:
                     thread.join()
     def count(self):
         while True:
-            sec_befor = self.dn
+            sec_befor = self.req
             time.sleep(1)
-            self.rs = self.dn - sec_befor
+            self.rs = self.req - sec_befor
             ctypes.windll.kernel32.SetConsoleTitleW(f'[attempt : {self.dn}] [bad request : {self.er}] [r/s : {self.rs}] [S@ : {self.scount}]')
     def random_s(self):
         while True:
@@ -185,6 +198,7 @@ class Main:
                 url2 = 'https://i.instagram.com/api/v1/accounts/set_username/'
                 data2 = {'username': self.Target}
                 self.SwapS = requests.post(url2, headers={'User-Agent': generateUSER_AGENT(), "Accept": "*/*","Accept-Encoding": "gzip, deflate", "Accept-Language": "en-US","X-IG-Capabilities": "3brTvw==", "X-IG-Connection-Type": "WIFI","Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",'Host': 'i.instagram.com', 'Connection': 'keep-alive'}, data=data2,cookies={'sessionid': f'{self.SES}'}, proxies=proxy)
+                self.req +=1
                 if ('"status":"ok"') in self.SwapS.text:
                     if self.nosp == 0:
                         self.nosp = 1
@@ -283,6 +297,7 @@ class Main:
                 self.SwapS = requests.post(url2, headers={'User-Agent': generateUSER_AGENT(), "Accept": "*/*","Accept-Encoding": "gzip, deflate", "Accept-Language": "en-US","X-IG-Capabilities": "3brTvw==", "X-IG-Connection-Type": "WIFI","Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
                                                      'Host': 'i.instagram.com', 'Connection': 'keep-alive'}, data=data2,
                                       cookies={'sessionid': f'{self.SES}'}, proxies=proxy)
+                self.req +=1
                 if ('"status":"ok"') in self.SwapS.text:
                     if self.nosp == 0:
                         self.nosp = 1
