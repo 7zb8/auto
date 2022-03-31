@@ -165,7 +165,7 @@ class Main:
     def count(self):
         while True:
             sec_befor = self.req
-            time.sleep(1)
+            time.sleep(2)
             self.rs = self.req - sec_befor
             ctypes.windll.kernel32.SetConsoleTitleW(f'[attempt : {self.dn}] [bad request : {self.er}] [r/s : {self.rs}] [S@ : {self.scount}]')
     def random_s(self):
