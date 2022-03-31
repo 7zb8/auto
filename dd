@@ -1,4 +1,20 @@
-
+PASTEBIN1 = 'https://pastebin.com/raw/xfaxCgMG'
+TEXT = requests.get(PASTEBIN1).text
+if 'xfaxCgMG' in PASTEBIN1:
+    pass
+else:
+    input(f'  ["STATUS:FAIL"] You Can Not Change The Pastebin !')
+    os._exit(1)
+    exit(0)
+GetIP = requests.get('https://api.ipify.org?format=json').text
+GETIP = re.findall('{"ip":"(.*?)"}', GetIP)
+IP = " ".join(GETIP)
+if IP in TEXT :
+    pass
+else:
+    print(f'  ["STATUS:FAIL"] You Can Not Use This Tool [ ip : {IP} ] ')
+    input("")
+    exit()
 SettingsO = []
 swee = []
 def RandomStringUpper(n=10):
@@ -27,7 +43,7 @@ def randomStringWithChar(stringLength=10):
     return RandomStringChars(1) + result
 
 ctypes.windll.kernel32.SetConsoleTitleW(f'#Alpha Claimer - By @7zb8')
-os.system('mode con: cols=65 lines=13')
+os.system('mode con: cols=65 lines=12')
 
 ###########################################################login#######################################################
 def generateUSER_AGENT():
