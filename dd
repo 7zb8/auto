@@ -6,16 +6,25 @@ if 'xfaxCgMG' in PASTEBIN1:
 else:
     input(f'  ["STATUS:FAIL"] You Can Not Change The Pastebin !')
     os._exit(1)
-    exit(0)
+PASTEBIN12 = 'https://pastebin.com/raw/nrD5DriN'
+TEXT2 = requests.get(PASTEBIN12).text
+if 'nrD5DriN' in PASTEBIN12:
+    pass
+else:
+    input(f'  ["STATUS:FAIL"] You Can Not Change The Pastebin !')
+    os._exit(1)
 GetIP = requests.get('https://api.ipify.org?format=json').text
 GETIP = re.findall('{"ip":"(.*?)"}', GetIP)
 IP = " ".join(GETIP)
 if IP in TEXT :
     pass
 else:
-    print(f'  ["STATUS:FAIL"] You Can Not Use This Tool [ ip : {IP} ] ')
-    input("")
-    exit()
+    if IP in TEXT2:
+        pass
+    else:
+        print(f'  ["STATUS:FAIL"] You Can Not Use This Tool [ ip : {IP} ] ')
+        input("")
+        exit()
 SettingsO = []
 swee = []
 def RandomStringUpper(n=10):
